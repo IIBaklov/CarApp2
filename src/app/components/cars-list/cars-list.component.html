@@ -1,0 +1,46 @@
+
+
+  <div class="container mt-5">
+    <div class="card">
+      <h2 class="text-center">List of cars</h2>
+      <a [routerLink]="['../add']" class="btn btn-primary mt-5 mb-3" type="button">Add</a>
+      <div class="card-body">
+      <table class="table table-stripped">
+      <thead>
+          <th>Registration number</th>
+          <th>Mark</th>
+          <th>Model</th>
+          <th>MPG</th>
+          <th>Cyinders</th>
+          <th>Horsepower</th>
+          <th>Weight</th>
+          <th>Acceleration</th>
+          <th>Date of REgistration</th>
+          <th>EGN OWner</th>
+          <th>Edit</th>
+          <th>Delete</th>
+      </thead>
+      <tbody>
+          <tr *ngFor="let car of cars">
+              <td>{{ car.regNum }}</td>
+              <td>{{ car.mark.markName }}</td>
+              <td>{{ car.model.model }}</td>
+              <td>{{ car.mpg }}</td>
+              <td>{{ car.cylinders }}</td>
+              <td>{{ car.horsepower }}</td>
+              <td>{{ car.weight }}</td>
+              <td>{{ car.accel }}</td>
+              <td>{{ car.saleDate }}</td>
+              <td>{{ car.owner.fullname }}</td>
+              <td><a [routerLink]="['../edit',car.regNum]" class="btn btn-primary mt-5 mb-3" type="button">Edit</a></td>
+              <td><button class="m-3 btn btn-sm btn-danger" (click)="onDelete(car.regNum
+                )">
+                Delete
+              </button></td>
+          </tr>
+
+      </tbody>
+      </table>
+      </div>
+    </div>
+  </div>

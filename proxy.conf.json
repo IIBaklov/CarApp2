@@ -1,0 +1,6 @@
+{
+    "/cars": {
+      "target": "http://localhost:8764",
+      "secure": false
+    }
+  }

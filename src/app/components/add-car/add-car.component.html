@@ -1,0 +1,124 @@
+<form #carsAddForm="ngForm" >
+  <div class="text-center" *ngIf="editForm"><h2 class="text-center">Edit of car</h2></div>
+  <div class="text-center" *ngIf="!editForm"><h2 class="text-center">Add of car</h2></div>
+  
+  
+<div style="width: 400px; margin: auto;">
+  <div class="submit-form">
+    <div class="list-group-item">
+      <div class="form-group">
+        <label for="title">Reg Num</label>
+        <div class="text-center" *ngIf="editForm">
+          <input
+          type="string"
+          readonly
+          class="form-control"
+          id="regNum"
+          required
+          [(ngModel)]="car.regNum"
+          name="regNum"
+        /></div>
+        <div class="text-center" *ngIf="!editForm">
+          <input
+          type="string"
+          class="form-control"
+          id="regNum"
+          required
+          [(ngModel)]="car.regNum"
+          name="regNum"
+        /></div>
+        
+      </div>
+
+      <div class="form-group">
+        <label for="mark">Mark</label>
+        <select (change)="selMark($event)" class="form-control" [(ngModel)]="markSel" id="mark" name="mark">  
+            <option [value]="mark.id" *ngFor="let mark of marks">{{mark.markName}} </option>  
+        </select>                 
+      </div>
+      
+      <div class="form-group">
+        <label for="model">Model</label>
+        <select  class="form-control" [(ngModel)]="modelSel" id="model" name="model">  
+            <option [value]="model.id" *ngFor="let model of models">{{model.model}} </option>  
+        </select>                 
+      </div>
+
+      <div class="form-group">
+        <label for="owner">Owner</label>
+        <select class="form-control" [(ngModel)]="ownerSel" id="owner" name="owner">  
+            <option [value]="owner.egn" *ngFor="let owner of owners">{{owner.fullname}} </option>  
+        </select>                 
+      </div>
+      <div class="form-group">
+        <label for="model">MPG</label>
+        <input
+          class="form-control"
+          id="mpg"
+          required
+          [(ngModel)]="car.mpg"
+          name="mpg"
+        />
+      </div>
+      <div class="form-group">
+        <label for="model">Cylinders</label>
+        <input
+          class="form-control"
+          id="cylinders"
+          required
+          [(ngModel)]="car.cylinders"
+          name="cylinders"
+        />
+      </div>
+      <div class="form-group">
+        <label for="model">Horsepower</label>
+        <input
+          class="form-control"
+          id="horsepower"
+          required
+          [(ngModel)]="car.horsepower"
+          name="horsepower"
+        />
+      </div>
+      <div class="form-group">
+        <label for="model">Weight</label>
+        <input
+          class="form-control"
+          id="weight"
+          required
+          [(ngModel)]="car.weight"
+          name="weight"
+        />
+      </div>
+      <div class="form-group">
+        <label for="model">Acceleration</label>
+        <input
+          class="form-control"
+          id="accel"
+          required
+          [(ngModel)]="car.accel"
+          name="accel"
+        />
+      </div>
+      <div class="form-group">
+        <label for="model">SaleDate</label>
+        <input type="date"
+          class="form-control"
+          id="saleDate"
+          required
+          [(ngModel)]="car.saleDate"
+          name="saleDate"
+        />
+      </div>
+      
+      <div *ngIf="editForm">
+           <button (click)="saveCar()" class="btn btn-success">Edit</button>
+      </div>
+      <div *ngIf="!editForm">
+          <button (click)="newCar()" class="btn btn-success">Create</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</form>
